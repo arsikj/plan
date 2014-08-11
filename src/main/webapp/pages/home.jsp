@@ -1,28 +1,62 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" isELIgnored="false"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<script type="text/javascript"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" isELIgnored="false"%>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/home.css">
+	<script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-<title>Insert title here</title>
-</head>
+	<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
 <body>
-	<div class="container">
-		<div class="row" style="height: 200px;">
-			<div class="col-sm-2" style="background-color: blue;">
-				<input type="button" value="BTN1"></input>
-			</div>
-			<div class="col-sm-4" style="background-color: orange;">
-				<input type="button" value="button 20 " class="btn btn-info"></input>
-			</div>
-		</div>
-		<div class="row"></div>
-	</div>
+	<nav class="navbar navbar-default" style="margin-top:-20px;" role="navigation">
+   <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" 
+         data-target="#example-navbar-collapse">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">slika brate</a>
+   </div>
+   <div style="float:right;" class="collapse navbar-collapse" id="example-navbar-collapse">
+      <ul class="nav navbar-nav">
+         <li ><a href="#">Contact</a></li>
+         <li><a href="#">About</a></li>
+         <li><button class="btn btn-danger" style="margin-top:8px; width:100px;">Logout</button></li>
+      </ul>
+   </div>
+</nav>
+	<div class="list-group list">
+   <a href="#" class="list-group-item title">
+      <h4 class="list-group-item-heading ">
+         Plan your budget
+      </h4>
+   </a>
+   <a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">
+         Cash in the bank
+      </h4>
+      <p class="list-group-item-text">
+         Here you can enter your current bank account balance.
+      </p>
+   </a>
+   <a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">
+         Current income
+      </h4>
+      <p class="list-group-item-text">
+         Add your incomes (e.g. wage/salary, tax refund etc.)
+      </p>
+   </a>
+   <a href="#" class="list-group-item">
+      <h4 class="list-group-item-heading">
+         Current spending
+      </h4>
+      <p class="list-group-item-text">
+         Add your spendings (e.g. bank fees, bills, health insurance, vacation etc.)
+      </p>
+   </a>
+</div>
+<div google-chart chart="chartObject" style="{{cssStyle}}"></div>
 </body>
-</html>

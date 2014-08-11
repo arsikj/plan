@@ -37,7 +37,8 @@ public class PlanController {
 		// }
 		// }
 		// }
-		ModelAndView result = new ModelAndView("home");
+		//ModelAndView result = initView(session, "login");
+		ModelAndView result=new ModelAndView("home");
 		return result;
 	}
 
@@ -53,13 +54,15 @@ public class PlanController {
 					Cookie c = cookies[i];
 					if (c.getName().equals("username")) {
 						session.setAttribute("username", c.getValue());
+						//return initView(session, "index");
 						return new ModelAndView("index");
 					}
 				}
 			}
 		}
 		User user = userService.getUserByUsername(username);
-		ModelAndView result = new ModelAndView("index");
+		//ModelAndView result = initView(session, "index");
+		ModelAndView result=new ModelAndView("home");
 		result.addObject("username", username);
 		result.addObject("password", password);
 		return result;
@@ -72,4 +75,13 @@ public class PlanController {
 		return result;
 	}
 
+	private ModelAndView initView(HttpSession session, String view) {
+		ModelAndView v = new ModelAndView("main");
+		if (session.getAttribute("username") == null) {
+			v.addObject("login");
+		} else {
+			v.addObject("include_view", view);
+		}
+		return v;
+	}
 }
