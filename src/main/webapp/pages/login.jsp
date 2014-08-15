@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
- <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/signin.css">
+ <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
+ <script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
 <title>Login</title>
 <body>
 	<div class="box">
@@ -16,8 +22,10 @@
 			<input class="btn btn-lg btn-primary btn-block" type="submit" id="submit" value="Sign in"/>
 			<p style="text-align: center; margin-top:5px;">
 				New here? 
-				<a href="signup">Sign up</a>
+				<a href="${pageContext.request.contextPath}/signup">Sign up</a>
 			</p>
+			
+			<p style="color:red; font-weight:bold; margin-top:5px;">${message}</p>
 		</form>
 	</div>
 </body>
