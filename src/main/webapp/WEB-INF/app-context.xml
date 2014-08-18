@@ -12,9 +12,8 @@
 	<context:component-scan base-package="mk.ukim.finki.mp.plan" />
 	
 	<mvc:resources mapping="/js/**" location="/js/" />
-	
 	<mvc:resources mapping="/css/**" location="/css/" />
-	<mvc:resources mapping="/images/**" location="/images/" />
-	 <import resource="security-context.xml"/> 
+	
+	<import resource="security-context.xml"/>
 
 </beans>

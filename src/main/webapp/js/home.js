@@ -2,9 +2,10 @@ google.load("visualization", "1", {
 	packages : [ "corechart" ]
 });
 var data;
+var rows;
 google.setOnLoadCallback(function() {
-	data = google.visualization.arrayToDataTable([ [ 'Year', 'Sales' ],
-			[ 0, 0 ] ]);
+	rows = [ [ 'Year', 'Sales' ], [ 0, 0 ] ];
+	data = google.visualization.arrayToDataTable();
 	drawChart();
 });
 
@@ -20,7 +21,9 @@ function drawChart() {
 
 $('#save_cash_in_the_bank').click(
 		function() {
-			data[data.length] = [ (new Date).getFullYear(),
+			var tmp = [ (new Date).getSeconds(),
 					parseFloat($('#current_balance').val()) ];
+			rows[rows.length] = tmp;
+			data = google.visualization.arrayToDataTable(rows);
 			drawChart();
 		});

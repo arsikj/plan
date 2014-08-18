@@ -1,6 +1,7 @@
 package mk.ukim.finki.mp.plan.model;
 
 import java.util.Currency;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -23,6 +24,16 @@ public class Income {
 	
 	private int count;
 	
+	private Date fromDate;
+	
+	public Date getFromDate() {
+		return fromDate;
+	}
+
+	public void setFromDate(Date fromDate) {
+		this.fromDate = fromDate;
+	}
+
 	private Currency currency;
 	
 	@Enumerated(EnumType.STRING)

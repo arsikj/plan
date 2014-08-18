@@ -9,11 +9,11 @@ import mk.ukim.finki.mp.plan.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 
 @Controller
 public class PlanController {
@@ -82,10 +82,10 @@ public class PlanController {
 		ModelAndView result = new ModelAndView("index");
 		return result;
 	}
-	
+
 	@RequestMapping(value = "/home", method = RequestMethod.POST)
 	public ModelAndView logout(HttpSession session, HttpServletRequest request) {
-		
+
 		request.getSession().invalidate();
 		ModelAndView result = new ModelAndView("login");
 		return result;
@@ -94,49 +94,41 @@ public class PlanController {
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
 	public ModelAndView signup(HttpSession session, HttpServletRequest request) {
 		ModelAndView result = new ModelAndView("signup");
+		result.addObject("user", new User());
 		return result;
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public ModelAndView signupPost(@RequestParam String firstname,
-			@RequestParam String lastname, @RequestParam String email,
-			@RequestParam String username, @RequestParam String password,
+	public ModelAndView signupPost(@ModelAttribute User user,
 			HttpSession session, HttpServletRequest request) {
 
-		User user = userService.getUserByUsername(username);
+		User u = userService.getUserByUsername(user.username);
 		ModelAndView result;
-		if (user != null) {
+		if (u != null) {
 			// ModelAndView result = initView(session, "index");
 			result = new ModelAndView("signup");
 			String message = "Sorry, the username already exists. Please try again.";
 			result.addObject("message", message);
 		} else {
-			User u = new User();
-			u.setName(firstname);
-			u.setSurname(lastname);
-			u.setMail(email);
-			u.setUsername(username);
-			u.setPassword(password);
-			userService.addUser(u);
+			userService.addUser(user);
 			result = new ModelAndView("login");
 			String message = "New user successfully created. Please login";
 			result.addObject("message", message);
-			result.addObject("username", username);
-			result.addObject("password", password);
 		}
 		return result;
 	}
-	
+
 	@RequestMapping(value = "/contact", method = RequestMethod.GET)
 	public ModelAndView contact(HttpSession session, HttpServletRequest request) {
 
 		ModelAndView result = new ModelAndView("contact");
 		return result;
 	}
-	
+
 	@RequestMapping(value = "/contact", method = RequestMethod.POST)
-	public ModelAndView sendEmail(HttpSession session, HttpServletRequest request) {		
-		
+	public ModelAndView sendEmail(HttpSession session,
+			HttpServletRequest request) {
+
 		ModelAndView result = new ModelAndView("home");
 		return result;
 	}
