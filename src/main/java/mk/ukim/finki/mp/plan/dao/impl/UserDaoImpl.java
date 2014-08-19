@@ -44,4 +44,26 @@ public class UserDaoImpl implements UserDao {
 		return users;
 	}
 
+	@Override
+	public void deleteUser(User u) {
+		User tmp = getUserByUsername(u.getUsername());
+		if (tmp != null ){
+			getCurrentSession().delete(tmp);
+		}		
+	}
+
+	@Override
+	public void updateUser(User u) {
+		User tmp = getUserByUsername(u.getUsername());
+		if (tmp != null ){
+			tmp.setIncomes(u.getIncomes());
+			tmp.setMail(u.getMail());
+			tmp.setName(u.getName());
+			tmp.setPassword(u.getPassword());
+			tmp.setSpendings(u.getSpendings());
+			tmp.setSurname(u.getSurname());
+			getCurrentSession().update(tmp);
+		}
+	}
+
 }

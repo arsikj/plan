@@ -16,16 +16,19 @@ public class Income {
 	@Id
 	@GeneratedValue
 	private int id;
-	
+
 	@ManyToOne
 	private User user;
-	
-	private String type;
-	
-	private int count;
-	
+
+	private int amount;
+
 	private Date fromDate;
-	
+
+	private Currency currency;
+
+	@Enumerated(EnumType.STRING)
+	private Frequency frequency;
+
 	public Date getFromDate() {
 		return fromDate;
 	}
@@ -33,11 +36,6 @@ public class Income {
 	public void setFromDate(Date fromDate) {
 		this.fromDate = fromDate;
 	}
-
-	private Currency currency;
-	
-	@Enumerated(EnumType.STRING)
-	private Frequency frequency;
 
 	public int getId() {
 		return id;
@@ -55,20 +53,12 @@ public class Income {
 		this.user = user;
 	}
 
-	public String getType() {
-		return type;
+	public int getAmount() {
+		return amount;
 	}
 
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public int getCount() {
-		return count;
-	}
-
-	public void setCount(int count) {
-		this.count = count;
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 
 	public Currency getCurrency() {
@@ -86,6 +76,5 @@ public class Income {
 	public void setFrequency(Frequency frequency) {
 		this.frequency = frequency;
 	}
-	
-	
+
 }

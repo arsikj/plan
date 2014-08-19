@@ -2,6 +2,7 @@
 background: #7A9B7A !important;
 color: #FFF !important;
 border-radius: 0px;
+max-height: 180px;
 }
 .jumbotron-sm { padding-top: 24px;
 padding-bottom: 24px; }
