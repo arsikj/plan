@@ -1,7 +1,5 @@
 package mk.ukim.finki.mp.plan.controller;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,17 +8,12 @@ import mk.ukim.finki.mp.plan.model.User;
 import mk.ukim.finki.mp.plan.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.MailMessage;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.mail.javamail.MimeMailMessage;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 
 @Controller
 public class PlanController {
@@ -83,10 +76,10 @@ public class PlanController {
 		return result;
 	}
 
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView index(HttpSession session, HttpServletRequest request) {
 
-		ModelAndView result = new ModelAndView("home");
+		ModelAndView result = new ModelAndView("index");
 		return result;
 	}
 
@@ -109,7 +102,7 @@ public class PlanController {
 	public ModelAndView signupPost(@ModelAttribute User user,
 			HttpSession session, HttpServletRequest request) {
 
-		User u = userService.getUserByUsername(user.username);
+		User u = userService.getUserByUsername(user.getUsername());
 		ModelAndView result;
 		if (u != null) {
 			// ModelAndView result = initView(session, "index");
@@ -133,28 +126,9 @@ public class PlanController {
 	}
 
 	@RequestMapping(value = "/contact", method = RequestMethod.POST)
-	public ModelAndView sendEmail(@RequestParam String message, @RequestParam String emailFrom, @RequestParam String subject, HttpSession session,
+	public ModelAndView sendEmail(HttpSession session,
 			HttpServletRequest request) {
-		
-		JavaMailSenderImpl mail= new JavaMailSenderImpl();
-		mail.setHost("smtp.gmail.com");
-		mail.setPort(587);
-		mail.setProtocol("smtp");
-		//mail.setUsername("");
-		//mail.setPassword("");		// DA SE NAMESTIV SS NEKOJ TEST ACCOUNT!
-		
-		MimeMessage msg = mail.createMimeMessage();
-		MimeMessageHelper helper = new MimeMessageHelper(msg);
-		try {
-			helper.setSubject(subject);
-			helper.setTo("dejaan1992@gmail.com");
-			helper.setText(message);
-			helper.setFrom(emailFrom);
-		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		mail.send(msg);
+
 		ModelAndView result = new ModelAndView("home");
 		return result;
 	}

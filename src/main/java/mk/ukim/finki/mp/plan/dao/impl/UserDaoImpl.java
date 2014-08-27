@@ -34,7 +34,9 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User getUserByUsername(String u) {
-		return (User) getCurrentSession().createQuery("from User where username=:u").setParameter("u", u).uniqueResult();
+		
+		User user = (User) getCurrentSession().get(User.class, u);
+		return user;
 	}
 	
 
@@ -42,28 +44,6 @@ public class UserDaoImpl implements UserDao {
 	public List<String> getAllUsersUsername() {
 		List<String> users = getCurrentSession().createQuery("select username from User").list();
 		return users;
-	}
-
-	@Override
-	public void deleteUser(User u) {
-		User tmp = getUserByUsername(u.getUsername());
-		if (tmp != null ){
-			getCurrentSession().delete(tmp);
-		}		
-	}
-
-	@Override
-	public void updateUser(User u) {
-		User tmp = getUserByUsername(u.getUsername());
-		if (tmp != null ){
-			tmp.setIncomes(u.getIncomes());
-			tmp.setMail(u.getMail());
-			tmp.setName(u.getName());
-			tmp.setPassword(u.getPassword());
-			tmp.setSpendings(u.getSpendings());
-			tmp.setSurname(u.getSurname());
-			getCurrentSession().update(tmp);
-		}
 	}
 
 }

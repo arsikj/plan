@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>mk.ukim.finki.mp</groupId>
-	<artifactId>plan</artifactId>
-	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>plan Maven Webapp</name>
-	<url>http://maven.apache.org</url>
-
-
-	<properties>
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>mk.ukim.finki.mp</groupId>
+  <artifactId>plan</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>plan Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  
+  <properties>
 		<spring.version>3.1.4.RELEASE</spring.version>
 		<spring.security.version>3.1.4.RELEASE</spring.security.version>
 		<!-- Hibernate version -->
@@ -131,14 +131,6 @@
 			<version>${spring.security.version}</version>
 		</dependency>
 
-		<!-- Java mail -->
-		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.5.0-b01</version>
-		</dependency>
-
-
 	</dependencies>
 
 
@@ -150,18 +142,18 @@
 			<url>http://maven.springframework.org/milestone</url>
 		</repository>
 	</repositories>
-
-
-	<build>
-		<finalName>plan</finalName>
-		<plugins>
+  
+  
+  <build>
+    <finalName>plan</finalName>
+    <plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
 				</configuration>
-			</plugin>
+			</plugin>			
 		</plugins>
-	</build>
+  </build>
 </project>

@@ -15,6 +15,8 @@
 </script>
 <body>
 	<jsp:include page="cash_in_the_bank_modal.jsp"></jsp:include>
+	<jsp:include page="income_modal.jsp"></jsp:include>
+	<jsp:include page="spending_modal.jsp"></jsp:include>
 	<div class="fluid-container">
 		<nav class="navbar navbar-default" style="margin-top: -20px;"
 			role="navigation">
@@ -50,11 +52,13 @@
 				<h4 class="list-group-item-heading">Cash in the bank</h4>
 				<p class="list-group-item-text">Here you can enter your current
 					bank account balance.</p>
-			</a> <a href="#" class="list-group-item">
+			</a> <a data-toggle="modal" data-target="#income"
+				 class="list-group-item">
 				<h4 class="list-group-item-heading">Current income</h4>
 				<p class="list-group-item-text">Add your incomes (e.g.
 					wage/salary, tax refund etc.)</p>
-			</a> <a href="#" class="list-group-item">
+			</a> <a data-toggle="modal" data-target="#spending" 
+				class="list-group-item">
 				<h4 class="list-group-item-heading">Current spending</h4>
 				<p class="list-group-item-text">Add your spendings (e.g. bank
 					fees, bills, health insurance, vacation etc.)</p>
