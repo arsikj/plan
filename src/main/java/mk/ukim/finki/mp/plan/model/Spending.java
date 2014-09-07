@@ -1,6 +1,7 @@
 package mk.ukim.finki.mp.plan.model;
 
 import java.util.Currency;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -11,22 +12,32 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Spending {
-	
+
 	@Id
 	@GeneratedValue
 	private int id;
-	
+
 	@ManyToOne
 	private User user;
-	
+
 	private String event;
-	
-	private int count;
-	
+
+	private int amount;
+
 	private Currency currency;
-	
+
+	private Date fromDate;
+
 	@Enumerated(EnumType.STRING)
 	private Frequency frequency;
+
+	public Date getFromDate() {
+		return fromDate;
+	}
+
+	public void setFromDate(Date fromDate) {
+		this.fromDate = fromDate;
+	}
 
 	public int getId() {
 		return id;
@@ -52,12 +63,12 @@ public class Spending {
 		this.event = event;
 	}
 
-	public int getCount() {
-		return count;
+	public int getAmount() {
+		return amount;
 	}
 
-	public void setCount(int count) {
-		this.count = count;
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 
 	public Currency getCurrency() {
@@ -75,7 +86,5 @@ public class Spending {
 	public void setFrequency(Frequency frequency) {
 		this.frequency = frequency;
 	}
-	
-	
 
 }

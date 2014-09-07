@@ -23,8 +23,7 @@ function drawChart() {
 }
 
 $('#save_cash_in_the_bank').click(
-		function() {
-			
+		function() {			
 			
 			 var date = new Date();
 
@@ -117,6 +116,4 @@ $('#save_spending').click(
 			}
 			
 			drawChart();
-		
-			
 		});
