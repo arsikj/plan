@@ -22,7 +22,7 @@ public class Income {
 	
 	private String type;
 	
-	private int count;
+	private int amount;
 	
 	private Date fromDate;
 	
@@ -63,12 +63,12 @@ public class Income {
 		this.type = type;
 	}
 
-	public int getCount() {
-		return count;
+	public int getAmount() {
+		return amount;
 	}
 
-	public void setCount(int count) {
-		this.count = count;
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 
 	public Currency getCurrency() {
