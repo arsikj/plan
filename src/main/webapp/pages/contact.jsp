@@ -64,8 +64,8 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                    	<a href="http://localhost:8080/plan/index">Back</a>
-                        <input type="submit" class="btn btn-success pull-right" id="btnContactUs"/>
+                        <input type="submit" class="btn btn-success pull-right" id="btnContactUs">
+                            Send Message</input>
                     </div>
                 </div>
                 </form>

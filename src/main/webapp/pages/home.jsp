@@ -27,7 +27,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Welcome ${username}</a>
+				<a class="navbar-brand" href="#">slika brate</a>
 			</div>
 			<div style="float: right;" class="collapse navbar-collapse"
 				id="example-navbar-collapse">

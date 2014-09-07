@@ -6,6 +6,8 @@ var rows;
 var cash;
 var income;
 var total;
+var incomes = new Array();
+var spendings = new Array();
 google.setOnLoadCallback(function() {
 	rows = [ [ 'Year', 'Sales' ], [ 0, 0 ] ];
 	data = google.visualization.arrayToDataTable();
@@ -23,7 +25,8 @@ function drawChart() {
 }
 
 $('#save_cash_in_the_bank').click(
-		function() {			
+		function() {
+			
 			
 			 var date = new Date();
 
@@ -65,15 +68,78 @@ $('#save_income').click(
 				
 				var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 				income = parseFloat($('#current_income').val());
+				var freq=$('#freq').val();
+				incomes.push(income);
 				var j = date.getMonth() + 1;
-				var year = 2013;
+				var year = 2014;
+				//var totalCash = 0;
+				
+				totalCash = cash + income;
 				
 				for(var i=0;i<12;i++)
-				{
+				{	
 					
-					data.addRows([
-								    [months[j++].toString() + ' ' + year.toString(),cash+=income],
-								]);
+						if(freq == 1)
+						{
+							
+							data.addRows([
+										    [months[j++].toString() + ' ' + year.toString(),totalCash],
+										]);
+							cash=totalCash;
+						}
+						else if(freq == 2)
+						{
+							data.addRows([
+										    [months[j++].toString() + ' ' + year.toString(),cash+=(income * 30)],
+										]);
+						}
+						else if(freq == 3)
+						{
+							data.addRows([
+										    [months[j++].toString() + ' ' + year.toString(),cash+=(income * 4)],
+										]);		
+						}
+						else if(freq == 4)
+						{
+							data.addRows([
+										    [months[j++].toString() + ' ' + year.toString(),cash+=income],
+										]);		
+						}
+						else if(freq == 5)
+						{
+							if(i % 4 == 0)
+							{
+								cash+=income;
+							}
+							data.addRows([
+										    [months[j++].toString() + ' ' + year.toString(),cash],
+										]);	
+							
+						}
+						else if(freq == 6)
+						{
+							if(i % 6 == 0)
+							{
+								cash+=income;
+							}
+							data.addRows([
+										    [months[j++].toString() + ' ' + year.toString(),cash],
+										]);	
+							
+						}
+						else if(freq == 7)
+						{
+							if(i % 11 == 0)
+							{
+								cash+=income;
+							}
+							data.addRows([
+										    [months[j++].toString() + ' ' + year.toString(),cash],
+										]);	
+							
+						}
+					
+					
 					if(j==11)
 					{
 						j=0;
@@ -83,6 +149,7 @@ $('#save_income').click(
 				}
 				
 				drawChart();
+				
 			
 			
 		});
@@ -98,15 +165,75 @@ $('#save_spending').click(
 			
 			var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 			var spending = parseFloat($('#current_spending').val());
+			var freq=$('#freq').val();
+			spendings.push(spending);
 			var j = date.getMonth() + 1;
-			var year = 2013;
+			var year = 2014;
+			totalCash = cash - spending;
 			
 			for(var i=0;i<12;i++)
-			{
+			{	
+					if(freq == 1)
+					{
+						
+						data.addRows([
+									    [months[j++].toString() + ' ' + year.toString(),totalCash],
+									]);
+						cash = totalCash;
+					}
+					else if(freq == 2)
+					{
+						data.addRows([
+									    [months[j++].toString() + ' ' + year.toString(),cash-=(spending * 30)],
+									]);
+					}
+					else if(freq == 3)
+					{
+						data.addRows([
+									    [months[j++].toString() + ' ' + year.toString(),cash-=(spending * 4)],
+									]);		
+					}
+					else if(freq == 4)
+					{
+						data.addRows([
+									    [months[j++].toString() + ' ' + year.toString(),cash-=spending],
+									]);		
+					}
+					else if(freq == 5)
+					{
+						if(i % 4 == 0)
+						{
+							cash-=spending;
+						}
+						data.addRows([
+									    [months[j++].toString() + ' ' + year.toString(),cash],
+									]);	
+						
+					}
+					else if(freq == 6)
+					{
+						if(i % 6 == 0)
+						{
+							cash-=spending;
+						}
+						data.addRows([
+									    [months[j++].toString() + ' ' + year.toString(),cash],
+									]);	
+						
+					}
+					else if(freq == 7)
+					{
+						if(i % 11 == 0)
+						{
+							cash-=spending;
+						}
+						data.addRows([
+									    [months[j++].toString() + ' ' + year.toString(),cash],
+									]);	
+						
+					}
 				
-				data.addRows([
-							    [months[j++].toString() + ' ' + year.toString(),cash-=spending],
-							]);
+				
 				if(j==11)
 				{
 					j=0;
@@ -116,4 +243,6 @@ $('#save_spending').click(
 			}
 			
 			drawChart();
+		
+			
 		});
