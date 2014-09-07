@@ -79,7 +79,7 @@ public class PlanController {
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView index(HttpSession session, HttpServletRequest request) {
 
-		ModelAndView result = new ModelAndView("index");
+		ModelAndView result = new ModelAndView("home");
 		return result;
 	}
 
