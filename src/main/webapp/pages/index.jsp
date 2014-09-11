@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Mila rulz</title>
+<title>Plan</title>
 </head>
 <body>
 	<h1>You're logged in as: ${username}</h1>

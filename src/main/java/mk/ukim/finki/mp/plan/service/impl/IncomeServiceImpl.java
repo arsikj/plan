@@ -43,12 +43,12 @@ public class IncomeServiceImpl implements IncomeService {
 	public void updateIncome(Income i) {
 		incomeDao.updateIncome(i);
 	}
-
+	//lists all the incomes for a given date
 	@Override
 	public List<Income> getAllIncomesByDate(Date d) {
 		return incomeDao.getAllIncomesByDate(d);
 	}
-
+	//lists all the incomes for a given time period, from one date to another
 	@Override
 	public List<Income> getAllIncomesFromDateToDate(Date d1, Date d2) {
 		return incomeDao.getAllIncomesFromDateToDate(d1, d2);

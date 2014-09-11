@@ -55,7 +55,6 @@ public class PlanController {
 					Cookie c = cookies[i];
 					if (c.getName().equals("username")) {
 						session.setAttribute("username", c.getValue());
-						// return initView(session, "index");
 						return new ModelAndView("home");
 					}
 				}
@@ -64,11 +63,12 @@ public class PlanController {
 		User user = userService.getUserByUsername(username);
 		ModelAndView result;
 		if (user != null) {
-			// ModelAndView result = initView(session, "index");
+			//user is logged in
 			result = new ModelAndView("home");
 			result.addObject("username", username);
 			result.addObject("password", password);
 		} else {
+			//the users username or password is incorrect
 			String message = "Sorry, the username and password you entered do not match. Please try again.";
 			result = new ModelAndView("login");
 			result.addObject("message", message);
@@ -105,11 +105,12 @@ public class PlanController {
 		User u = userService.getUserByUsername(user.getUsername());
 		ModelAndView result;
 		if (u != null) {
-			// ModelAndView result = initView(session, "index");
+			//username already exists in database
 			result = new ModelAndView("signup");
 			String message = "Sorry, the username already exists. Please try again.";
 			result.addObject("message", message);
 		} else {
+			//else add the user to the database
 			userService.addUser(user);
 			result = new ModelAndView("login");
 			String message = "New user successfully created. Please login";

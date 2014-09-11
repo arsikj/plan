@@ -42,12 +42,12 @@ public class SpendingServiceImpl implements SpendingService {
 	public void updateSpending(Spending s) {
 		spendingDao.updateSpending(s);
 	}
-
+	//lists all the spendings for a given date
 	@Override
 	public List<Spending> getAllSpendingsByDate(Date d) {
 		return spendingDao.getAllSpendingsByDate(d);
 	}
-
+	//lists all the spending for a given time period, from one date to another
 	@Override
 	public List<Spending> getAllSpendingsFromDateToDate(Date d1, Date d2) {
 		return spendingDao.getAllSpendingsFromDateToDate(d1, d2);

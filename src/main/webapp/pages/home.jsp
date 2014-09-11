@@ -11,8 +11,9 @@
 	href="${pageContext.request.contextPath}/css/bootstrap.min.css" />
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
-	
+
 </script>
+<!-- Initial screen once the user is logged in-->
 <body>
 	<jsp:include page="cash_in_the_bank_modal.jsp"></jsp:include>
 	<jsp:include page="income_modal.jsp"></jsp:include>

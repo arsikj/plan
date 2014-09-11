@@ -1,28 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 	<head>
-		 <!--   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-			    <script type="text/javascript">
-				      google.load("visualization", "1", {packages:["corechart"]});
-				      google.setOnLoadCallback(drawChart);
-				      function drawChart() {
-				        var data = google.visualization.arrayToDataTable([
-				          ['Year', 'Sales', 'Expenses','All'],
-				          ['2004',  100,      400,500],
-				          ['2005',  1170,      460,2000],
-				          ['2006',  660,       1120,1500],
-				          ['2007',  1030,      540,2500]
-				        ]);
-				
-				        var options = {
-				          title: 'Company Performance'
-				        };
-				    
-				        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-				        chart.draw(data, options);
-				      }
-	    		</script> -->
 	</head>
+	<!-- Initial page when the user visits the site-->
  <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css">
  <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>

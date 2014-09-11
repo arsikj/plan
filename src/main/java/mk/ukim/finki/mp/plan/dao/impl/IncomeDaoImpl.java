@@ -53,14 +53,15 @@ public class IncomeDaoImpl implements IncomeDao {
 			getCurrentSession().update(tmp);
 		}
 	}
-
+	
+	//gets all incomes by given date
 	@Override
 	public List<Income> getAllIncomesByDate(Date d) {
 		List<Income> incomes = (List<Income>) getCurrentSession().createQuery(
 				"from Income where fromDate=:d").list();
 		return incomes;
 	}
-
+	//gets all incomes in the given interval, from one date to another
 	@Override
 	public List<Income> getAllIncomesFromDateToDate(Date d1, Date d2) {
 		List<Income> incomes = (List<Income>) getCurrentSession().createQuery(

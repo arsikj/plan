@@ -59,13 +59,13 @@ public class SpendingDaoImpl implements SpendingDao {
 		}
 
 	}
-
+	//gets all spendings for the given date
 	@Override
 	public List<Spending> getAllSpendingsByDate(Date d) {
 		return (List<Spending>) getCurrentSession().createQuery(
 				"from Spending where fromDate=:d").list();
 	}
-
+	//gets all spendings for a given time period, from one date to another
 	@Override
 	public List<Spending> getAllSpendingsFromDateToDate(Date d1, Date d2) {
 		return (List<Spending>) getCurrentSession().createQuery(

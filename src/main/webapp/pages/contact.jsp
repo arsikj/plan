@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<!-- Contact page of the site, containing location information and mailing option for customers-->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/contact.css">
  <script type="text/javascript"
 	src="${pageContext.request.contextPath}/js/jquery-2.1.1.min.js"></script>
